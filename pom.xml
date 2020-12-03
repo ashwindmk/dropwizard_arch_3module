@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ashwin</groupId>
+    <artifactId>dropwizard-arch-3module</artifactId>
+    <version>0.0.1</version>
+    <modules>
+        <module>api</module>
+        <module>app</module>
+        <module>client</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- dependency versions -->
+        <dropwizard.version>2.0.1</dropwizard.version>
+
+        <!-- plugin versions-->
+        <compiler.version>3.8.1</compiler.version>
+        <jar.version>3.1.2</jar.version>
+        <shade.version>3.2.2</shade.version>
+        <junit.version>4.13.1</junit.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- project artifacts -->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>3module-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>3module-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- dependencies -->
+            <dependency>
+                <groupId>io.dropwizard</groupId>
+                <artifactId>dropwizard-core</artifactId>
+                <version>${dropwizard.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${compiler.version}</version>
+                    <configuration>
+                        <release>11</release>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${jar.version}</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>${shade.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

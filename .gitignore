@@ -1,0 +1,14 @@
+# Mac
+**/.DS_Store
+
+# IDE
+.vscode
+.idea
+dropwizard-arch-3module.iml
+
+# Project
+target
+.settings
+.project
+.classpath
+dependency-reduced-pom.xml
